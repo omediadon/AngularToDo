@@ -1,31 +1,32 @@
-<div class="container-fluid">
-	<div class="row bg-primary justify-content-center align-items-center">
-		<div class="col-6 text-light text-center h1 my-2 mx-auto">
-			{{title}}
+<div class="page-content page-container" id="page-content">
+	<div class="padding">
+		<div class="row container d-flex justify-content-center">
+			<div class="col-md-12">
+				<div class="card px-3">
+					<div class="card-body">
+						<h2 class="xcard-title text-center">
+							{{title}}
+						</h2>
+
+						<div class="add-items d-flex">
+							<label for="td"></label>
+							<input [(ngModel)]="todo" type="text" id="td" class="form-control todo-list-input"
+							       placeholder="What do you need to do today?">
+							<button (click)="addToDo()" class="add btn btn-primary font-weight-bold todo-list-add-btn">Add
+							</button>
+						</div>
+						<div class="list-wrapper">
+							<ul class="d-flex flex-column-reverse todo-list">
+								<li *ngFor="let td of todos; let index = index;"
+								    class="border px-3 py-3 mt-3 d-flex align-items-center">
+									<label class="form-check-label flex-grow">{{td}}</label>
+									<i (click)="deleteToDo(index)" class="remove fa fa-times-circle text-danger"></i>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-	</div>
-
-	<div class="row mt-1 py-2 bg-primary d-flex text-light">
-
-		<div class="form-group form-row col-10 mr-auto ml-auto my-0">
-
-			<label for="task" class="col-3 h4">Task</label>
-			<input [(ngModel)]="todo" type="text" value="" class="col-9 mb-2 form-control" id="task">
-
-			<button (click)="addToDo()" class="btn btn-block btn-light text-primary col-2 offset-10">
-				ADD
-			</button>
-		</div>
-	</div>
-
-	<div *ngFor="let x of todos; let index = index;" class="row mt-1">
-
-		<div class="mx-auto col-10 bg-primary d-flex justify-content-center align-items-center text-light">
-
-			<div class="col-10 text-light my-3 h6">{{x}}</div>
-
-			<input (click)="deleteToDo(index)" type="button" value="Remove" class="col-2 my-3 btn btn-danger">
-		</div>
-
 	</div>
 </div>

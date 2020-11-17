@@ -30,6 +30,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.container-fluid div div').textContent).toContain('Angular ToDo App');
+    expect(compiled.querySelector('.xcard-title').textContent).toContain('Angular ToDo App');
   });
 });
